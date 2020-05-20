@@ -6,9 +6,14 @@ class ListItem extends React.Component {
   render() {
     return (
       <li>
-        <a className="nav-link" to={this.props.id} href={"#" + this.props.id}>
+        <Link
+          className="nav-link"
+          to={this.props.id}
+          //href={"#" + this.props.id}
+          onClick={this.props.handleRouting}
+        >
           {this.props.title}
-        </a>
+        </Link>
       </li>
     );
   }

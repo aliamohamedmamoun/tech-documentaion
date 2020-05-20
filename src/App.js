@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import ListItem from "./Components/ListItem";
+import NavList from "./Components/NavList";
 import Introduction from "./Components/Content/Introduction";
 import AlreadyKnow from "./Components/Content/AlreadyKnow";
 import JsAndJava from "./Components/Content/JsAndJava";
@@ -62,21 +62,28 @@ export class App extends React.Component {
       { title: "Reference", id: "Reference" }
     ]
   };
+  handleRouting = e => {
+    alert(e.target);
+  };
 
   render() {
+    /*  const matchPath = this.match.path;
+    console.log(matchPath);
+    const titles = this.state.titles; */
     return (
       <Router>
-        <nav id="navbar">
-          <header>JS Documentation</header>
-          <ul id="nav-list">
-            {this.state.titles.map(title => (
-              <ListItem title={title.title} id={title.id} />
-            ))}
-          </ul>
-        </nav>
+        <NavList
+          titles={this.state.titles}
+          handleRouting={this.handleRouting}
+        />
 
         <main id="main-doc">
-          <Introduction />
+          {/* <Route path={`${matchPath}/`}
+                render= {
+
+                }
+            /> */}
+          {/*      <Introduction />
           <AlreadyKnow />
           <JsAndJava />
           <HelloWorld />
@@ -89,7 +96,7 @@ export class App extends React.Component {
           <IfStatement />
           <WhileStatement />
           <FunctionDeclaration />
-          <Reference />
+          <Reference /> */}
         </main>
       </Router>
     );
