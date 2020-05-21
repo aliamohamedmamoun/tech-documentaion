@@ -7,11 +7,7 @@ const NavList = ({ titles, handleRouting }) => {
       <header>JS Documentation</header>
       <ul id="nav-list">
         {titles.map(title => (
-          <ListItem
-            title={title.title}
-            id={title.id}
-            handleRouting={handleRouting}
-          />
+          <ListItem key={title.id} title={title.title} id={title.id} />
         ))}
       </ul>
     </nav>

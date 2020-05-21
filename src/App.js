@@ -22,12 +22,14 @@ import "./App.css";
 export class App extends React.Component {
   state = {
     titles: [
-      { title: "Introduction", id: "Introduction" },
+      { key: 1, title: "Introduction", id: "Introduction" },
       {
+        key: 1,
         title: "What you should already know",
         id: "What_you_should_already_know"
       },
       {
+        key: 1,
         title: "JavaScript and Java",
         id: "JavaScript_and_Java"
       },
@@ -62,14 +64,8 @@ export class App extends React.Component {
       { title: "Reference", id: "Reference" }
     ]
   };
-  handleRouting = e => {
-    alert(e.target);
-  };
-
   render() {
-    /*  const matchPath = this.match.path;
-    console.log(matchPath);
-    const titles = this.state.titles; */
+    const titles = this.state.titles;
     return (
       <Router>
         <NavList
@@ -78,25 +74,26 @@ export class App extends React.Component {
         />
 
         <main id="main-doc">
-          {/* <Route path={`${matchPath}/`}
-                render= {
-
-                }
-            /> */}
-          {/*      <Introduction />
-          <AlreadyKnow />
-          <JsAndJava />
-          <HelloWorld />
-          <Variabels />
-          <DeclaringVariables />
-          <VariableScope />
-          <GlobalVariables />
-          <Constants />
-          <DataTypes />
-          <IfStatement />
-          <WhileStatement />
-          <FunctionDeclaration />
-          <Reference /> */}
+          <Route path={"/Introduction"} component={Introduction} />
+          <Route
+            path={"/What_you_should_already_know"}
+            component={AlreadyKnow}
+          />
+          <Route path={"/JavaScript_and_Java"} component={JsAndJava} />
+          <Route path={"/Hello_world"} component={HelloWorld} />
+          <Route path={"/Variables"} component={Variabels} />
+          <Route path={"/Declaring_variables"} component={DeclaringVariables} />
+          <Route path={"/Variable_scope"} component={VariableScope} />
+          <Route path={"/Global_variables"} component={GlobalVariables} />
+          <Route path={"/Constants"} component={Constants} />
+          <Route path={"/Data_types"} component={DataTypes} />
+          <Route path={"/if...else_statemen"} component={IfStatement} />
+          <Route path={"/while_statement"} component={WhileStatement} />
+          <Route
+            path={"/Function_declarations"}
+            component={FunctionDeclaration}
+          />
+          <Route path={"/Reference"} component={Reference} />
         </main>
       </Router>
     );
