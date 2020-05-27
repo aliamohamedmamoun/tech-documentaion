@@ -12,10 +12,10 @@ class ListItem extends React.Component {
       </li>
     );
   }
+  static propTypes = {
+    to: PropTypes.string,
+    title: PropTypes.string
+  };
 }
-
-ListItem.propType = {
-  handleRouting: PropTypes.func.isRequired
-};
 
 export default ListItem;
