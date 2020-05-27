@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import ListItem from "./Components/ListItem";
+import NavList from "./Components/NavList";
 import Introduction from "./Components/Content/Introduction";
 import AlreadyKnow from "./Components/Content/AlreadyKnow";
 import JsAndJava from "./Components/Content/JsAndJava";
@@ -62,34 +62,30 @@ export class App extends React.Component {
       { title: "Reference", id: "Reference" }
     ]
   };
-
   render() {
+    const titles = this.state.titles;
     return (
       <Router>
-        <nav id="navbar">
-          <header>JS Documentation</header>
-          <ul id="nav-list">
-            {this.state.titles.map(title => (
-              <ListItem title={title.title} id={title.id} />
-            ))}
-          </ul>
-        </nav>
+        <NavList titles={this.state.titles} />
 
         <main id="main-doc">
-          <Introduction />
-          <AlreadyKnow />
-          <JsAndJava />
-          <HelloWorld />
-          <Variabels />
-          <DeclaringVariables />
-          <VariableScope />
-          <GlobalVariables />
-          <Constants />
-          <DataTypes />
-          <IfStatement />
-          <WhileStatement />
-          <FunctionDeclaration />
-          <Reference />
+          <Route path="/Introduction" component={Introduction} />
+          <Route path="/What_you_should_already_know" component={AlreadyKnow} />
+          <Route path="/JavaScript_and_Java" component={JsAndJava} />
+          <Route path="/Hello_world" component={HelloWorld} />
+          <Route path="/Variables" component={Variabels} />
+          <Route path="/Declaring_variables" component={DeclaringVariables} />
+          <Route path="/Variable_scope" component={VariableScope} />
+          <Route path="/Global_variables" component={GlobalVariables} />
+          <Route path="/Constants" component={Constants} />
+          <Route path="/Data_types" component={DataTypes} />
+          <Route path="/if...else_statemen" component={IfStatement} />
+          <Route path="/while_statement" component={WhileStatement} />
+          <Route
+            path="/Function_declarations"
+            component={FunctionDeclaration}
+          />
+          <Route path="/Reference" component={Reference} />
         </main>
       </Router>
     );

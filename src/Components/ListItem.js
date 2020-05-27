@@ -6,16 +6,16 @@ class ListItem extends React.Component {
   render() {
     return (
       <li>
-        <a className="nav-link" to={this.props.id} href={"#" + this.props.id}>
+        <Link className="nav-link" to={this.props.id}>
           {this.props.title}
-        </a>
+        </Link>
       </li>
     );
   }
+  static propTypes = {
+    to: PropTypes.string,
+    title: PropTypes.string
+  };
 }
-
-ListItem.propType = {
-  handleRouting: PropTypes.func.isRequired
-};
 
 export default ListItem;
